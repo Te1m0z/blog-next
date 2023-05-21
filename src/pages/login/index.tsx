@@ -1,68 +1,60 @@
-import React from 'react'
-import { RecaptchaVerifier, signInWithPhoneNumber } from 'firebase/auth'
-//import { useRouter } from 'next/navigation'
-import { auth } from '../../../firebase.config'
-import { useUserAuth } from '../../contexts/UserAuthContext'
+import type { NextPage } from 'next'
+//import { useRouter } from 'next/router'
+import { useState, useEffect, useRef } from 'react'
+import { RecaptchaVerifier } from 'firebase/auth'
+import { auth } from '~/firebase.config'
+import { loginWithPhone } from '@/services/auth'
+//import LogInForm from '@/components/forms/LogInForm'
 
-export default function LoginPage() {
-  const [phoneNumber, setPhoneNumber] = React.useState<null | string>(null)
-  const [isCodeSended, setIsCodeSended] = React.useState<boolean>(false)
-  const [errorMessage, setErrorMessage] = React.useState<null | string>(null)
+const LoginPage: NextPage = () => {
+  //const router = useRouter()
+  const [phone, setPhone] = useState<string>('')
+  const [verifier, setVerifier] = useState<RecaptchaVerifier | null>(null)
+  const verifierContainerRef = useRef<HTMLDivElement | null>(null)
 
-  const phoneRef = React.useRef<null | HTMLInputElement>(null)
-  const submitBtnRef = React.useRef<null | HTMLButtonElement>(null)
+  useEffect(() => {
+    // const isLoggedIn = false
+    // if (isLoggedIn) router.push('/')
+    if (!verifier && verifierContainerRef.current) {
+      const verifier = new RecaptchaVerifier(
+        verifierContainerRef.current,
+        { size: 'invisible' },
+        auth
+      )
+      setVerifier(verifier)
+    }
+  }, [verifier])
 
-  const sendCode = () => {
-    console.log(phoneRef.current?.value)
-
-    signInWithPhoneNumber(
-      auth,
-      phoneRef.current.value,
-      window.recaptchaVerifier
-    )
-      .then((confirmResult) => {
-        setIsCodeSended(true)
-        console.log('code sended')
-      })
-      .catch((error) => {
-        console.log('err', error)
-      })
+  const handleLogin = async (phoneNumber: string) => {
+    if (!verifier) return
+    try {
+      const r = await loginWithPhone(phoneNumber, verifier)
+      console.log(r)
+      // Verification code sent, handle the next steps
+    } catch (error) {
+      console.error('Error logging in with phone number:', error)
+    }
   }
-
-  const user = useUserAuth()
-
-  console.log(user)
-
-  /* Установка капчи */
-  React.useEffect(() => {
-    if (window.recaptchaVerifier) return
-    window.recaptchaVerifier = new RecaptchaVerifier(
-      submitBtnRef.current,
-      {
-        size: 'invisible',
-        callback: () => {
-          handleSubmit()
-        },
-      },
-      auth
-    )
-    window.recaptchaVerifier.render()
-  }, [])
 
   return (
     <div>
-      <form>
-        <input type='text' ref={phoneRef} />
-        <button type='submit' ref={submitBtnRef}>
-          send
-        </button>
+      <div ref={verifierContainerRef}></div>
+      <form
+        onSubmit={(e) => {
+          e.preventDefault()
+          handleLogin(phone)
+        }}
+      >
+        <input
+          type='text'
+          onInput={(e) => setPhone(e.target.value)}
+          value={phone}
+          placeholder='Phone number'
+        />
+        <button type='submit'>Login with Phone Number</button>
       </form>
-      {isCodeSended && (
-        <div>
-          <p>code sended:</p>
-          <input type='number' />
-        </div>
-      )}
     </div>
   )
 }
+
+export default LoginPage

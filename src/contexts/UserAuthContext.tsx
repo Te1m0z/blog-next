@@ -1,25 +1,14 @@
 import React from 'react'
+import { User } from 'firebase/auth'
 
-import type IUser from '../typings/User'
-import { logInWithPhone } from '../modules/auth'
-
-const UserAuthContext = React.createContext<IUser | null>(null)
-
-export function UserAuthContextProvider({ children }) {
-  const [user, setUser] = React.useState<IUser | null>(null)
-
-  const defaultState = {
-    user,
-    logInWithPhone
-  }
-
-  return (
-    <UserAuthContext.Provider value={defaultState}>
-      {children}
-    </UserAuthContext.Provider>
-  )
+interface IUserContext {
+  user: User | null | undefined
+  username: null
 }
 
-export function useUserAuth() {
-  return React.useContext(UserAuthContext)
+const defaultState = {
+  user: null,
+  username: null,
 }
+
+export const UserAuthContext = React.createContext<IUserContext>(defaultState)
