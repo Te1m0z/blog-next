@@ -11,8 +11,8 @@ export default function Home() {
   //console.log('Loading: ', loading, 'user: ', user, error)
 
   return (
-    <main>
+    <div>
       hello
-    </main>
+    </div>
   )
 }
