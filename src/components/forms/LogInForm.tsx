@@ -8,7 +8,7 @@ import {
 } from 'react'
 import { doc, getDoc, writeBatch } from 'firebase/firestore'
 import debounce from 'lodash.debounce'
-import { UserAuthContext } from '@/contexts/UserAuthContext'
+import { UserAuthContext } from '@/context/UserAuthContext'
 import { db } from '~/firebase.config'
 
 const MIN_USERNAME_LENGTH = 3

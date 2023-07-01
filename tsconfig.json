@@ -19,7 +19,8 @@
       "@/*": ["./src/*"],
       "~/*": ["./*"]
     },
-    "allowImportingTsExtensions": true
+    "allowImportingTsExtensions": true,
+    "noUnusedParameters": false,
   },
   "include": [
     "next-env.d.ts",

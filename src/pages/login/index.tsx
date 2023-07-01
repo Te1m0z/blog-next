@@ -6,8 +6,10 @@ import { signInWithEmailAndPassword } from 'firebase/auth'
 //const InputMask = require('react-input-mask')
 import toast from 'react-hot-toast'
 import { auth } from '@/entry/firebase'
+import { useForm } from 'react-hook-form'
 
-type FormErrors = { [key: string]: boolean }
+// Components
+import { Input } from '@/components/core'
 
 const notifications = {
   success: {
@@ -26,11 +28,6 @@ const notifications = {
   },
 }
 
-const errorDefault = {
-  email: false,
-  password: false,
-}
-
 const LoginPage: NextPage = () => {
   /* REFS */
 
@@ -39,12 +36,10 @@ const LoginPage: NextPage = () => {
 
   /* STATES */
 
-  // телефон
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
-  const [errors, setError] = useState<FormErrors>(errorDefault)
-
-  const router = useRouter()
+  const [isLoading, setIsLoading]                         = useState<boolean>(false)
+  const [error, setError]                                 = useState<Error | null>(null)
+  const router                                            = useRouter()
+  const { register, handleSubmit, formState: { errors }, control } = useForm()
 
   /* HOOKS */
 
@@ -69,52 +64,71 @@ const LoginPage: NextPage = () => {
   // Проверка полей формы
   // true - проверка успешно прошла
   // false - есть ошибки
-  const validateLoginForm = () => {
-    // затем проверки
-    setError(() => {
-      // по дефолту перед проверкой - ошибок нет
-      const updatedErrors = errorDefault
-      if (!email) updatedErrors.email = true
-      if (!password) updatedErrors.password = true
-      return updatedErrors
-    })
+  // const validateLoginForm = () => {
+  //   // затем проверки
+  //   setError(() => {
+  //     // по дефолту перед проверкой - ошибок нет
+  //     const updatedErrors = errorDefault
+  //     if (!email) updatedErrors.email = true
+  //     if (!password) updatedErrors.password = true
+  //     return updatedErrors
+  //   })
 
-    return Object.values(errors).every((isError) => !isError)
-  }
+  //   return Object.values(errors).every((isError) => !isError)
+  // }
 
   /* HANDLERS */
 
-  const handlerFormPhoneSubmit = (event: FormEvent<HTMLFormElement>) => {
-    event.preventDefault()
-    event.stopPropagation()
-    console.log(validateLoginForm())
-    //if (!validateLoginForm()) return
-    //login()
+  const handlerFormLoginSubmit = (data) => {
+    console.log(data)
+
   }
 
-  const handlerEmailInput = (event: ChangeEvent<HTMLInputElement>) => {
-    setEmail(event.target.value)
-  }
+  // const handlerEmailInput = (event: ChangeEvent<HTMLInputElement>) => {
+  //   setEmail(event.target.value)
+  // }
 
-  const handlerPasswordInput = (event: ChangeEvent<HTMLInputElement>) => {
-    setPassword(event.target.value)
-  }
+  // const handlerPasswordInput = (event: ChangeEvent<HTMLInputElement>) => {
+  //   setPassword(event.target.value)
+  // }
 
   return (
     <div className='login-page'>
       <div ref={verifierRef}></div>
-      <form onSubmit={handlerFormPhoneSubmit}>
-        <input
-          type='text'
-          value={email}
-          onInput={handlerEmailInput}
-          className={cn({ error: errors.email })}
+      <form onSubmit={handleSubmit(handlerFormLoginSubmit)}>
+        {errors.email && (
+          <div className='error-message'>{errors.email.message}</div>
+        )}
+        {errors.password && (
+          <div className='error-message'>{errors.password.message}</div>
+        )}
+        <Input
+          name={'email'}
+          placeholder={'email'}
+          control={control}
+          rules={{ required: true }}
         />
         <input
           type='text'
-          value={password}
-          onInput={handlerPasswordInput}
+          className={cn({ error: errors.email })}
+          {...register('email', {
+            required: 'Please enter an name',
+            pattern: {
+              value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+              message: 'Invalid email address',
+            },
+          })}
+        />
+        <input
+          type='password'
           className={cn({ error: errors.password })}
+          {...register('password', {
+            required: 'Please enter an password',
+            minLength: {
+              value: 8,
+              message: 'Password must be at least 8 characters long',
+            },
+          })}
         />
         <button type='submit'>Login</button>
       </form>
