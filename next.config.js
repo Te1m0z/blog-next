@@ -1,7 +1,7 @@
 //const next = require('next')
 
 const nextConfig = {
-  reactStrictMode: true,
+  reactStrictMode: false,
 }
 
 module.exports = nextConfig
