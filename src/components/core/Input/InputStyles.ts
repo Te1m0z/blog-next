@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import themes, { Theme as t } from '@/styles/themes'
+//import themes, { Theme as t } from '@/styles/themes'
 import { COLORS } from '@/styles/vars'
 
 export const Input = styled.input`

@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 //import themes, { Theme as t } from '@/styles/themes'
-import { COLORS } from '@/styles/vars'
+//import { COLORS } from '@/styles/vars'
 
 export const Form = styled.form`
   display: flex;
@@ -21,4 +21,8 @@ export const FormTitle = styled.h3`
   margin-bottom: 40px;
   font-size: 30px;
   text-align: center;
+`
+
+export const FormError = styled.div`
+  color: red;
 `

@@ -56,6 +56,14 @@ const Input = <T extends FieldValues>({
     })
   }
 
+  // Если нет дефолт сообщения - то устанавливаем
+  if (typeof rules.required === 'boolean') {
+    rules.required = {
+      value: true,
+      message: 'Поле ' + label + ' должно быть заполнено'
+    }
+  }
+
   const { field, fieldState: { invalid } } = useController({ control, name, rules, defaultValue })
 
   return (

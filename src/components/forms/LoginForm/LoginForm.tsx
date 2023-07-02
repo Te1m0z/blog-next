@@ -1,8 +1,8 @@
 import { FC } from 'react'
-import { useRouter } from 'next/router'
-import { useState, useRef } from 'react'
-import toast from 'react-hot-toast'
-import { auth } from '@/entry/firebase'
+// import { useRouter } from 'next/router'
+// import { useState, useRef } from 'react'
+// import toast from 'react-hot-toast'
+// import { auth } from '@/entry/firebase'
 import { useForm } from 'react-hook-form'
 
 // Components
@@ -11,31 +11,31 @@ import { Button, Input } from '@/components/core'
 // Styles
 import * as s from './LoginFormStyles'
 
-const notifications = {
-  success: {
-    login: 'You succesfully logged in',
-  },
-  error: {
-    login: 'Wrong login or password',
-    some: 'Somethin went wrong',
-    email: {
-      empty: 'Email can not be empty',
-    },
-    password: {
-      empty: 'Password can not be empty',
-    },
-    code: 'Wrong code',
-  },
-}
+// const notifications = {
+//   success: {
+//     login: 'You succesfully logged in',
+//   },
+//   error: {
+//     login: 'Wrong login or password',
+//     some: 'Somethin went wrong',
+//     email: {
+//       empty: 'Email can not be empty',
+//     },
+//     password: {
+//       empty: 'Password can not be empty',
+//     },
+//     code: 'Wrong code',
+//   },
+// }
 
 const LoginForm: FC = () => {
   /* REFS */
 
   /* STATES */
 
-  const [isLoading, setIsLoading]                        = useState<boolean>(false)
-  const [error, setError]                                = useState<Error | null>(null)
-  const router                                           = useRouter()
+  // const [isLoading, setIsLoading]                        = useState<boolean>(false)
+  // const [error, setError]                                = useState<Error | null>(null)
+  // const router                                           = useRouter()
   const { handleSubmit, formState: { errors }, control } = useForm()
 
   /* HOOKS */
@@ -76,8 +76,8 @@ const LoginForm: FC = () => {
 
   /* HANDLERS */
 
-  const handlerFormLoginSubmit = (data) => {
-    console.log(data)
+  const handlerFormLoginSubmit = () => {
+    console.log('handlerFormLoginSubmit')
   }
 
   // const handlerEmailInput = (event: ChangeEvent<HTMLInputElement>) => {
@@ -88,16 +88,12 @@ const LoginForm: FC = () => {
   //   setPassword(event.target.value)
   // }
 
+  //console.log('form')
+
   return (
     <div className='login-page'>
       <s.Form onSubmit={handleSubmit(handlerFormLoginSubmit)}>
         <s.FormTitle>Welcome</s.FormTitle>
-        {/* {errors.email && (
-          <div className='error-message'>{errors.email.message}</div>
-        )}
-        {errors.password && (
-          <div className='error-message'>{errors.password.message}</div>
-        )} */}
         <s.InputContainer>
           <Input
             type={'email'}
@@ -117,6 +113,13 @@ const LoginForm: FC = () => {
           />
         </s.InputContainer>
         <Button type='submit'>Log In</Button>
+        {/* Ошибки */}
+        {errors.email && (
+          <s.FormError>{errors.email.message}</s.FormError>
+        )}
+        {errors.password && (
+          <s.FormError>{errors.password.message}</s.FormError>
+        )}
       </s.Form>
     </div>
   )

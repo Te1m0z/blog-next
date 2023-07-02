@@ -1,6 +1,6 @@
 import React from 'react'
 
-export const app-logo = () => {
+export const AppLogo = () => {
   return (
     <div>app-logo</div>
   )
