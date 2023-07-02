@@ -1,0 +1,60 @@
+@font-face {
+    font-family: 'Oxanium';
+    src: url('Oxanium-Bold.eot');
+    src: url('Oxanium-Bold.eot?#iefix') format('embedded-opentype'),
+        url('Oxanium-Bold.woff2') format('woff2'),
+        url('Oxanium-Bold.woff') format('woff'),
+        url('Oxanium-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Oxanium';
+    src: url('Oxanium-Medium.eot');
+    src: url('Oxanium-Medium.eot?#iefix') format('embedded-opentype'),
+        url('Oxanium-Medium.woff2') format('woff2'),
+        url('Oxanium-Medium.woff') format('woff'),
+        url('Oxanium-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Oxanium';
+    src: url('Oxanium-Regular.eot');
+    src: url('Oxanium-Regular.eot?#iefix') format('embedded-opentype'),
+        url('Oxanium-Regular.woff2') format('woff2'),
+        url('Oxanium-Regular.woff') format('woff'),
+        url('Oxanium-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Oxanium';
+    src: url('Oxanium-Light.eot');
+    src: url('Oxanium-Light.eot?#iefix') format('embedded-opentype'),
+        url('Oxanium-Light.woff2') format('woff2'),
+        url('Oxanium-Light.woff') format('woff'),
+        url('Oxanium-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Oxanium';
+    src: url('Oxanium-SemiBold.eot');
+    src: url('Oxanium-SemiBold.eot?#iefix') format('embedded-opentype'),
+        url('Oxanium-SemiBold.woff2') format('woff2'),
+        url('Oxanium-SemiBold.woff') format('woff'),
+        url('Oxanium-SemiBold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+

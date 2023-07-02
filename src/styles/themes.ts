@@ -1,12 +1,9 @@
+import light from './themes/light'
+import dark from './themes/dark'
+
 const themes = {
-  light: {
-    primaryColor: '#ccc',
-    secondaryColor: 'green',
-  },
-  dark: {
-    primaryColor: '#000',
-    secondaryColor: 'yellow',
-  },
+  light,
+  dark,
 }
 
 export type Theme = keyof typeof themes

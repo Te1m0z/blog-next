@@ -6,7 +6,6 @@ import ViewportProvider from '@/context/ViewportContext'
 import { ThemeSiteProvider } from '@/context/ThemeContext'
 
 /* STYLES */
-//import '@/styles/app.scss'
 import AppStyles from '@/styles/app'
 
 const App = ({ Component, pageProps }: AppProps) => {
