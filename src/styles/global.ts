@@ -1,5 +1,6 @@
 import { createGlobalStyle } from 'styled-components'
 import themes, { Theme as t } from '@/styles/themes'
+import { SIZES } from '@/styles/vars'
 
 const globalStyles = createGlobalStyle`
 	body,
@@ -29,7 +30,7 @@ const globalStyles = createGlobalStyle`
 
 	.container {
 		width: 100%;
-		max-width: $main-container-width;
+		max-width: ${SIZES.container};
 		padding: 0 15px;
 		margin: 0 auto;
 		height: 100%;

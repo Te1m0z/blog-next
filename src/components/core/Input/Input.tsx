@@ -8,10 +8,6 @@ import {
   PathValue
 } from 'react-hook-form'
 import cn from 'classnames'
-//import { useTheme } from 'styled-components'
-//import theme from '@/styles/theme'
-//import { getScrollStyles } from '@/styles/common'
-//import useBreakpointValues from '@/hooks/useBreakpointValues'
 import * as s from './InputStyles'
 
 export type Props<T extends FieldValues> = {
@@ -42,8 +38,8 @@ const Input = <T extends FieldValues>({
     <>
       {multiline ? (
         <textarea
-          {...field}
           placeholder={placeholder}
+          {...field}
         />
       ) : (
         <s.Input

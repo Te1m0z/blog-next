@@ -94,7 +94,6 @@ const LoginPage: NextPage = () => {
 
   return (
     <div className='login-page'>
-      <div ref={verifierRef}></div>
       <form onSubmit={handleSubmit(handlerFormLoginSubmit)}>
         {errors.email && (
           <div className='error-message'>{errors.email.message}</div>

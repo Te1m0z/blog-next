@@ -1,3 +1,5 @@
+import { COLORS } from '@/styles/vars'
+
 const lightTheme = {
   /* Major */
   primaryColor: '#ccc',
@@ -6,7 +8,7 @@ const lightTheme = {
   siteColor: '#000',
   /* Inputs */
   inputBg: 'red',
-  inputBorderColor: '#eee',
+  inputBorderColor: COLORS.purple,
 }
 
 export default lightTheme

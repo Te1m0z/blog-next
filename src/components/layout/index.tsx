@@ -10,7 +10,7 @@ export default function AppLayout({ children }: IAppLayout) {
   return (
     <>
       <AppHeader />
-      <main>{children}</main>
+      <main className='container'>{children}</main>
       <AppFooter />
     </>
   )
