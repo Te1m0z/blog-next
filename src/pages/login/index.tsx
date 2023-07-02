@@ -1,7 +1,6 @@
 import type { NextPage } from 'next'
 import { useRouter } from 'next/router'
-import { useState, useEffect, useRef, FormEvent, ChangeEvent } from 'react'
-import cn from 'classnames'
+import { useState, useRef } from 'react'
 import { signInWithEmailAndPassword } from 'firebase/auth'
 //const InputMask = require('react-input-mask')
 import toast from 'react-hot-toast'
@@ -9,7 +8,7 @@ import { auth } from '@/entry/firebase'
 import { useForm } from 'react-hook-form'
 
 // Components
-import { Input } from '@/components/core'
+import { Button, Input } from '@/components/core'
 
 const notifications = {
   success: {
@@ -81,7 +80,6 @@ const LoginPage: NextPage = () => {
 
   const handlerFormLoginSubmit = (data) => {
     console.log(data)
-
   }
 
   // const handlerEmailInput = (event: ChangeEvent<HTMLInputElement>) => {
@@ -115,7 +113,7 @@ const LoginPage: NextPage = () => {
           control={control}
           rules={{ required: true }}
         />
-        <button type='submit'>Login</button>
+        <Button>Hello</Button>
       </form>
     </div>
   )

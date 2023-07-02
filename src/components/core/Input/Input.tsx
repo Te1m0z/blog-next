@@ -8,7 +8,7 @@ import {
   PathValue
 } from 'react-hook-form'
 import cn from 'classnames'
-import { v4 as uuid } from 'uuid'
+//import { v4 as uuid } from 'uuid'
 import * as s from './InputStyles'
 
 export type Props<T extends FieldValues> = {
@@ -56,11 +56,7 @@ const Input = <T extends FieldValues>({
     })
   }
 
-  const inputID = uuid()
-
   const { field, fieldState: { invalid } } = useController({ control, name, rules, defaultValue })
-
-  //Object.assign(field, { id: inputID })
 
   return (
     <>
