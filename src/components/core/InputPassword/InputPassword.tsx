@@ -8,63 +8,36 @@ import {
   PathValue
 } from 'react-hook-form'
 import cn from 'classnames'
-import { v4 as uuid } from 'uuid'
-import * as s from './InputStyles'
+import * as s from './InputPasswordStyles'
 
 export type Props<T extends FieldValues> = {
-  type?: 'text' | 'email' | 'password'
+  placeholder: string
   name: Path<T>
-  placeholder?: string
+  type?: 'text' | 'email' | 'password'
   multiline?: boolean
   width?: number
   control: Control<T>
   rules?: RegisterOptions
   defaultValue?: PathValue<T, Path<T>>
-  label?: string
   children?: ReactNode
 }
 
 //const { className: scrollClass, styles } = getScrollStyles('textarea')
 
-const Input = <T extends FieldValues>({
-  type = 'text',
+const InputPassword = <T extends FieldValues>({
+  placeholder,
   name,
-  placeholder = '',
   multiline = false,
   control,
-  rules = {},
+  rules,
   defaultValue = '' as PathValue<T, Path<T>>,
-  label,
   children
 }: Props<T>) => {
 
-  if (type === 'email') {
-    Object.assign(rules, {
-      pattern: {
-        value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-        message: 'Invalid email address',
-      },
-    })
-  }
-
-  if (type === 'password') {
-    Object.assign(rules, {
-      minLength: {
-        value: 8,
-        message: 'Password must be at least 8 characters long',
-      },
-    })
-  }
-
-  const inputID = uuid()
-
   const { field, fieldState: { invalid } } = useController({ control, name, rules, defaultValue })
-
-  //Object.assign(field, { id: inputID })
 
   return (
     <>
-      {label && <s.Label>{label}</s.Label>}
       {multiline ? (
         <textarea
           placeholder={placeholder}
@@ -72,7 +45,7 @@ const Input = <T extends FieldValues>({
         />
       ) : (
         <s.Input
-          type={type}
+          type='text'
           placeholder={placeholder}
           className={cn({ error: invalid })}
           {...field}
@@ -83,4 +56,4 @@ const Input = <T extends FieldValues>({
   )
 }
 
-export default Input
+export default InputPassword

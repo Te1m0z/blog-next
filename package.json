@@ -33,6 +33,7 @@
   },
   "devDependencies": {
     "@types/styled-jsx": "^3.4.4",
+    "babel-plugin-styled-components": "^2.1.4",
     "sass": "^1.62.0"
   }
 }

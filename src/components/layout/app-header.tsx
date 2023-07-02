@@ -7,7 +7,7 @@ export default function AppHeader() {
   const theme = useTheme()
 
   return (
-    <header>
+    <header className='site-header'>
       <div className='container'>
         <Link href='/'>Te1m0z blog</Link>
         <nav>

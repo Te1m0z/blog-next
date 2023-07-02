@@ -36,10 +36,10 @@ const LoginPage: NextPage = () => {
 
   /* STATES */
 
-  const [isLoading, setIsLoading]                         = useState<boolean>(false)
-  const [error, setError]                                 = useState<Error | null>(null)
-  const router                                            = useRouter()
-  const { register, handleSubmit, formState: { errors }, control } = useForm()
+  const [isLoading, setIsLoading]                        = useState<boolean>(false)
+  const [error, setError]                                = useState<Error | null>(null)
+  const router                                           = useRouter()
+  const { handleSubmit, formState: { errors }, control } = useForm()
 
   /* HOOKS */
 
@@ -95,39 +95,25 @@ const LoginPage: NextPage = () => {
   return (
     <div className='login-page'>
       <form onSubmit={handleSubmit(handlerFormLoginSubmit)}>
-        {errors.email && (
+        {/* {errors.email && (
           <div className='error-message'>{errors.email.message}</div>
         )}
         {errors.password && (
           <div className='error-message'>{errors.password.message}</div>
-        )}
+        )} */}
         <Input
+          type={'email'}
           name={'email'}
-          placeholder={'email'}
+          label={'Email'}
           control={control}
           rules={{ required: true }}
         />
-        <input
-          type='text'
-          className={cn({ error: errors.email })}
-          {...register('email', {
-            required: 'Please enter an name',
-            pattern: {
-              value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-              message: 'Invalid email address',
-            },
-          })}
-        />
-        <input
-          type='password'
-          className={cn({ error: errors.password })}
-          {...register('password', {
-            required: 'Please enter an password',
-            minLength: {
-              value: 8,
-              message: 'Password must be at least 8 characters long',
-            },
-          })}
+        <Input
+          type={'password'}
+          name={'password'}
+          label={'Password'}
+          control={control}
+          rules={{ required: true }}
         />
         <button type='submit'>Login</button>
       </form>
