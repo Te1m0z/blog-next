@@ -1,5 +1,6 @@
 import type { AppProps } from 'next/app'
-import { UserAuthProvider } from '@/context/UserAuthContext'
+import { useEffect } from 'react'
+import UserConfigProvider from '@/context/UserContext'
 import { Toaster } from 'react-hot-toast'
 import AppLayout from '@/components/layout'
 import ViewportProvider from '@/context/ViewportContext'
@@ -8,15 +9,32 @@ import { ThemeSiteProvider } from '@/context/ThemeContext'
 /* STYLES */
 import AppStyles from '@/styles/app'
 
-const App = ({ Component, pageProps }: AppProps) => {
+export default function MyApp ({ Component, pageProps, router }: AppProps) {
+  console.log('app')
+
+  // useEffect(() => {
+
+  // }, [])
+
+  // <Toaster
+  //   toastOptions={{
+  //     success: {
+  //       position: 'top-center'
+  //     },
+  //     error: {
+  //       position: 'top-right'
+  //     },
+  //   }}
+  // />
+
   return (
-    <UserAuthProvider>
-      <ThemeSiteProvider>
+    <UserConfigProvider>
+      <ThemeSiteProvider>{/* <-- ? */}
+        <AppStyles />{/* <-- ? */}
         <AppLayout>
           <ViewportProvider>
-            <Component {...pageProps} />
+            <Component {...pageProps} key={router.route} />
           </ViewportProvider>
-          <AppStyles />
           <Toaster
             toastOptions={{
               success: {
@@ -29,8 +47,6 @@ const App = ({ Component, pageProps }: AppProps) => {
           />
         </AppLayout>
       </ThemeSiteProvider>
-    </UserAuthProvider>
+    </UserConfigProvider>
   )
 }
-
-export default App

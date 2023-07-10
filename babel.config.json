@@ -1,0 +1,31 @@
+{
+  "env": {
+    "production": {
+      "plugins": [
+        [
+          "styled-components",
+          {
+            "ssr": true,
+            "displayName": false,
+            "preprocess": false
+          }
+        ]
+      ]
+    },
+    "development": {
+      "plugins": ["transform-react-jsx-source"]
+    }
+  },
+  "presets": ["next/babel"],
+  "plugins": [
+    "inline-dotenv",
+    [
+      "styled-components",
+      {
+        "ssr": true,
+        "displayName": true,
+        "preprocess": false
+      }
+    ]
+  ]
+}

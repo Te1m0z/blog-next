@@ -8,6 +8,11 @@ import { useForm } from 'react-hook-form'
 // Components
 import { Button, Input } from '@/components/core'
 
+type TLoginInputTypes = {
+  email: string
+  password: string
+}
+
 // Styles
 import * as s from './LoginFormStyles'
 
@@ -36,7 +41,7 @@ const LoginForm: FC = () => {
   // const [isLoading, setIsLoading]                        = useState<boolean>(false)
   // const [error, setError]                                = useState<Error | null>(null)
   // const router                                           = useRouter()
-  const { handleSubmit, formState: { errors }, control } = useForm()
+  const { handleSubmit, formState: { errors }, control } = useForm<TLoginInputTypes>()
 
   /* HOOKS */
 
@@ -115,7 +120,11 @@ const LoginForm: FC = () => {
         <Button type='submit'>Log In</Button>
         {/* Ошибки */}
         {errors.email && (
-          <s.FormError>{errors.email.message}</s.FormError>
+          <>
+            {/* </s.FormError>
+            <s.FormError></s.FormError> */}
+            <span>{errors.email.message}</span>
+          </>
         )}
         {errors.password && (
           <s.FormError>{errors.password.message}</s.FormError>
