@@ -1,6 +1,7 @@
 import { Html, Head, Main, NextScript } from 'next/document'
 import Document, { DocumentContext } from 'next/document'
 import { ServerStyleSheet } from 'styled-components'
+import AppToaster from '@/components/AppToaster'
 
 export default function MyDocument() {
   return (
@@ -8,6 +9,7 @@ export default function MyDocument() {
       <Head />
       <body>
         <Main />
+        <AppToaster />
         <NextScript />
       </body>
     </Html>

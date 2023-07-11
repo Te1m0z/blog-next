@@ -1,29 +1,28 @@
 import { useState, useEffect } from 'react'
-import { doc, onSnapshot, getFirestore, Unsubscribe } from 'firebase/firestore'
-import { useAuthState } from 'react-firebase-hooks/auth'
-import { auth } from '@/firebase'
+import { User, onAuthStateChanged, getAuth } from 'firebase/auth'
+import { TOKEN_KEY } from '~/constants'
 
 export default function useUserData() {
-  const [user] = useAuthState(auth)
-  const [username, setUsername] = useState(null)
+  // const [user] = useAuthState(auth)
+  // const [username, setUsername] = useState(null)
+  const [user, setUser] = useState<User | null | false>(null)
 
   useEffect(() => {
-    let unsubscribe: undefined | Unsubscribe
+    const unsubscribe = onAuthStateChanged(getAuth(), (user) => {
+      if (user !== null) {
+        setUser(user)
+        user.getIdToken().then((idToken) => {
+          sessionStorage.setItem(TOKEN_KEY, idToken)
+        })
+        console.log('User"s state changed: Signed In')
+      } else {
+        setUser(false)
+        sessionStorage.removeItem(TOKEN_KEY)
+        console.log('Users state changed: Signed Out')
+      }
+    })
+    return () => unsubscribe()
+  }, [])
 
-    if (user) {
-      const ref = doc(getFirestore(), 'users', user.uid)
-      console.log(ref)
-      unsubscribe = onSnapshot(ref, (doc) => {
-        setUsername(doc.data()?.username)
-      })
-    } else {
-      setUsername(null)
-    }
-
-    console.log('useUserData::unsubscribe', unsubscribe)
-
-    return unsubscribe
-  }, [user])
-
-  return { user, username }
+  return { user }
 }
