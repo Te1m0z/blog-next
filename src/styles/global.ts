@@ -1,8 +1,14 @@
 import { createGlobalStyle } from 'styled-components'
-import themes, { Theme as t } from '@/styles/themes'
+import themes, { Theme } from '@/styles/themes'
 import { SIZES } from '@/styles/vars'
 
-const globalStyles = createGlobalStyle`
+type TTheme = {
+	theme: {
+		value: Theme
+	}
+}
+
+const globalStyles = createGlobalStyle<TTheme>`
 	body,
 	html {
 		overflow-x: hidden;
@@ -19,8 +25,8 @@ const globalStyles = createGlobalStyle`
 		font-weight: 400;
 		line-height: 1.5;
 		transition: 300ms ease background-color, 300ms ease color;
-		color: ${(p) => themes[<t>p.theme.value].siteColor};
-		background-color: ${(p) => themes[<t>p.theme.value].siteBg};
+		color: ${(p) => themes[p.theme.value].siteColor};
+		background-color: ${(p) => themes[p.theme.value].siteBg};
 
 		& > main {
 			flex-grow: 1;

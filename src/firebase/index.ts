@@ -1,14 +1,9 @@
-/* eslint-disable import/no-extraneous-dependencies */
-// TODO: Eslint throws a weird error, the line above is to fix that.
 import { getApp, getApps, initializeApp } from 'firebase/app'
 import { getAuth } from 'firebase/auth'
 import { getFirestore } from 'firebase/firestore'
 import { getStorage } from 'firebase/storage'
 
-//import 'firebase/firestore'
-//import 'firebase/storage'
-//import 'firebase/analytics'
-
+// Данные firebase
 import config from './credentials'
 
 const app = !getApps().length ? initializeApp(config) : getApp()

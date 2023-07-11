@@ -12,8 +12,6 @@ export interface ThemeContextProps {
 export const ThemeSiteProvider: NextPage<{ children: ReactNode }> = ({ children }) => {
   const [theme, setTheme] = React.useState<Theme>(defaultTheme)
 
-  console.log('ThemeSiteProvider')
-
   return (
     <ThemeProvider theme={{ value: theme, setTheme }}>
       {children}

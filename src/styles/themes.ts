@@ -11,7 +11,7 @@ export type Theme = keyof typeof themes
 export const defaultTheme: Theme = 'light'
 
 
-// ??? refactor
+// ??? refactor 
 type TThemeProps = {
   theme?: {
     value?: Theme

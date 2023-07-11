@@ -5,13 +5,7 @@ import { ServerStyleSheet } from 'styled-components'
 export default function MyDocument() {
   return (
     <Html lang='ru'>
-      <Head>
-        <meta charSet='UTF-8' />
-        <meta
-          content='width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0'
-          name='viewport'
-        />
-      </Head>
+      <Head />
       <body>
         <Main />
         <NextScript />
