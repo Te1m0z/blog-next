@@ -11,21 +11,15 @@ import FontsStyles from '@/styles/fonts'
 import GlobalStyles from '@/styles/global'
 
 export default function MyApp({ Component, pageProps, router }: AppProps) {
-  console.log('MyApp')
+  console.log('When go through pages, its updating ? 0_o')
   return (
-    <>
-      {/* <UserAuthProvider> */}
       <ThemeSiteProvider>
         <ResetStyles />
         <FontsStyles />
         <GlobalStyles />
         <AppLayout>
-          {/* <ViewportProvider> */}
           <Component {...pageProps} />
-          {/* </ViewportProvider> */}
         </AppLayout>
       </ThemeSiteProvider>
-      {/* </UserAuthProvider> */}
-    </>
   )
 }
