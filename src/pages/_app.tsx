@@ -4,19 +4,28 @@ import { ThemeSiteProvider } from '@/context/ThemeContext'
 import AppLayout from '@/components/layout'
 import ViewportProvider from '@/context/ViewportContext'
 /* STYLES */
-import AppStyles from '@/styles/app'
+//import AppStyles from '@/styles/app'
+
+import ResetStyles from '@/styles/reset'
+import FontsStyles from '@/styles/fonts'
+import GlobalStyles from '@/styles/global'
 
 export default function MyApp({ Component, pageProps, router }: AppProps) {
+  console.log('MyApp')
   return (
-    <UserAuthProvider>
+    <>
+      {/* <UserAuthProvider> */}
       <ThemeSiteProvider>
-        <AppStyles />
+        <ResetStyles />
+        <FontsStyles />
+        <GlobalStyles />
         <AppLayout>
-          <ViewportProvider>
-            <Component {...pageProps} key={router.route} />
-          </ViewportProvider>
+          {/* <ViewportProvider> */}
+          <Component {...pageProps} />
+          {/* </ViewportProvider> */}
         </AppLayout>
       </ThemeSiteProvider>
-    </UserAuthProvider>
+      {/* </UserAuthProvider> */}
+    </>
   )
 }

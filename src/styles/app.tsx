@@ -1,7 +1,9 @@
 import { NextPage } from 'next'
-import GlobalStyles from './global'
 import ResetStyles from './reset'
 import FontsStyles from './fonts'
+import GlobalStyles from './global'
+
+import { memo } from 'react'
 
 const AppStyles: NextPage = () => {
   return (
@@ -13,4 +15,4 @@ const AppStyles: NextPage = () => {
   )
 }
 
-export default AppStyles
+export default memo(AppStyles)

@@ -1,4 +1,5 @@
 import { createGlobalStyle } from 'styled-components'
+//import styled from 'styled-components'
 import { SIZES } from '@/styles/vars'
 import { TEXT_COLOR, BG_COLOR } from '@/styles/theming/colors'
 import { FONTS_FAMILY, FONTS_SIZE } from '@/styles/theming/fonts'

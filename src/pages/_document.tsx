@@ -6,7 +6,8 @@ import AppToaster from '@/components/AppToaster'
 export default function MyDocument() {
   return (
     <Html lang='ru'>
-      <Head />
+      <Head>
+      </Head>
       <body>
         <Main />
         <AppToaster />

@@ -10,7 +10,7 @@ const env = {
   FIREBASE_MESSAGEING_SENDER_ID: process.env.FIREBASE_MESSAGEING_SENDER_ID,
   FIREBASE_APP_ID: process.env.FIREBASE_APP_ID,
   FIREBASE_CLIENT_EMAIL: process.env.FIREBASE_CLIENT_EMAIL,
-  //SC_ATTR: true,
+  // SC_ATTR: true,
 }
 
 const nextConfig = {
@@ -43,7 +43,6 @@ const nextConfig = {
         },
       },
     })
-
     return config
   },
 }

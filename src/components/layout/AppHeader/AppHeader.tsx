@@ -6,6 +6,8 @@ import { UserAuthContext } from '@/context/UserAuthContext'
 /* STYLES */
 import * as s from './AppHeaderStyles'
 
+// vue-router ract-dom-router
+
 export default function AppHeader() {
 
   const { user } = useContext(UserAuthContext)

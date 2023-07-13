@@ -26,8 +26,11 @@
   },
   "include": [
     "next-env.d.ts",
+    "lodash.d.ts",
+    "font.d.ts",
+    "svg.d.ts",
     "**/*.ts",
-    "**/*.tsx"
+    "**/*.tsx",
   ],
   "exclude": [
     ".git",
