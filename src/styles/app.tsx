@@ -1,11 +1,13 @@
-import { NextPage } from 'next'
+//import { NextPage } from 'next'
+import { FC } from 'react'
 import ResetStyles from './reset'
 import FontsStyles from './fonts'
 import GlobalStyles from './global'
+//import { memo } from 'react'
 
-import { memo } from 'react'
 
-const AppStyles: NextPage = () => {
+// this component consists of parts of global styles
+const AppStyles: FC = () => {
   return (
     <>
       <FontsStyles />
@@ -15,4 +17,5 @@ const AppStyles: NextPage = () => {
   )
 }
 
-export default memo(AppStyles)
+//export default memo(AppStyles)
+export default AppStyles

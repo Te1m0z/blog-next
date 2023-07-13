@@ -15,6 +15,11 @@ export const Inner = styled.div`
 export const ThemeBlock = styled.div`
   display: flex;
   align-items: center;
+
+  & > button {
+    border: 2px solid red;
+    padding: 10px;
+  }
 `
 
 export const AuthBlock = styled.div`

@@ -11,8 +11,6 @@ import * as s from './AppHeaderStyles'
 export default function AppHeader() {
 
   const { user } = useContext(UserAuthContext)
-
-  console.log(user)
   
   const theme = useTheme()
 
@@ -20,14 +18,14 @@ export default function AppHeader() {
     <s.Header>
       <div className='container'>
         <s.Inner>
-          <Link href='/'>Te1m0z blog</Link>
-          <nav>
+          <Link href='/'>Home</Link>
+          {/* <nav>
             <ul>
               <li>
                 <Link href='/'>Home</Link>
               </li>
             </ul>
-          </nav>
+          </nav> */}
           <s.ThemeBlock>
             <button onClick={() => theme.setTheme('light')}>light</button>
             <button onClick={() => theme.setTheme('dark')}>dark</button>
