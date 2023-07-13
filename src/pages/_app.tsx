@@ -3,7 +3,6 @@ import { UserAuthProvider } from '@/context/UserAuthContext'
 import { ThemeSiteProvider } from '@/context/ThemeContext'
 import AppLayout from '@/components/layout'
 import ViewportProvider from '@/context/ViewportContext'
-
 /* STYLES */
 import AppStyles from '@/styles/app'
 

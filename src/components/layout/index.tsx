@@ -1,7 +1,6 @@
 import React from 'react'
-import AppHeader from './app-header'
-import AppFooter from './app-footer'
-//import StyledComponentsRegistry from '@/lib/registry'
+import AppHeader from './AppHeader/AppHeader'
+import AppFooter from './AppFooter/AppFooter'
 
 interface IAppLayout {
   children: React.ReactNode
@@ -10,7 +9,6 @@ interface IAppLayout {
 export default function AppLayout({ children }: IAppLayout) {
   return (
     <>
-      {/* <StyledComponentsRegistry> */}
       <AppHeader />
       <main className='site-content'>
         <div className='container'>
@@ -18,7 +16,6 @@ export default function AppLayout({ children }: IAppLayout) {
         </div>
       </main>
       <AppFooter />
-      {/* </StyledComponentsRegistry> */}
     </>
   )
 }

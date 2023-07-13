@@ -12,7 +12,12 @@ interface IUserContext {
   setUser: Dispatch<SetStateAction<TUser>>
 }
 
-export const UserAuthContext = createContext<IUserContext | null>(null)
+const defaultState = {
+  user: null,
+  setUser: () => {},
+}
+
+export const UserAuthContext = createContext<IUserContext>(defaultState)
 
 export const UserAuthProvider: NextPage<{ children: ReactNode }> = ({ children }) => {
   /* STATES */

@@ -1,16 +1,19 @@
 import { NextPage } from 'next'
 import React, { ReactNode } from 'react'
 import { ThemeProvider } from 'styled-components'
-import { Theme, defaultTheme } from '@/styles/themes'
+
+export type TTheme = 'light' | 'dark'
 
 export interface ThemeContextProps {
-  theme: Theme
+  theme: TTheme
   // eslint-disable-next-line no-unused-vars
-  setTheme: (theme: Theme) => void
+  setTheme: (theme: TTheme) => void
 }
 
 export const ThemeSiteProvider: NextPage<{ children: ReactNode }> = ({ children }) => {
-  const [theme, setTheme] = React.useState<Theme>(defaultTheme)
+
+  // todo: get theme from storage
+  const [theme, setTheme] = React.useState<TTheme>('light')
 
   return (
     <ThemeProvider theme={{ value: theme, setTheme }}>

@@ -76,7 +76,7 @@ const Input = <T extends FieldValues>({
         />
       ) : (
         <s.Input
-          type={type}
+          type='text'
           placeholder={placeholder}
           className={cn({ error: invalid })}
           {...field}

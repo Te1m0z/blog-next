@@ -120,11 +120,7 @@ const LoginForm: FC = () => {
         <Button type='submit'>Log In</Button>
         {/* Ошибки */}
         {errors.email && (
-          <>
-            {/* </s.FormError>
-            <s.FormError></s.FormError> */}
-            <span>{errors.email.message}</span>
-          </>
+          <s.FormError>{errors.email.message}</s.FormError>
         )}
         {errors.password && (
           <s.FormError>{errors.password.message}</s.FormError>
