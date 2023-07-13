@@ -1,58 +1,61 @@
 import { createGlobalStyle } from 'styled-components'
-//import styled from 'styled-components'
+/* SOURCES: Oxanium */
+import OxaniumMediumWoff from 'public/fonts/Oxanium/Oxanium-Medium.woff'
+import OxaniumMediumWoff2 from 'public/fonts/Oxanium/Oxanium-Medium.woff2'
+import OxaniumBoldWoff from 'public/fonts/Oxanium/Oxanium-Bold.woff'
+import OxaniumBoldWoff2 from 'public/fonts/Oxanium/Oxanium-Bold.woff2'
+import OxaniumLightWoff from 'public/fonts/Oxanium/Oxanium-Light.woff'
+import OxaniumLightWoff2 from 'public/fonts/Oxanium/Oxanium-Light.woff2'
+import OxaniumRegularWoff from 'public/fonts/Oxanium/Oxanium-Regular.woff'
+import OxaniumRegularWoff2 from 'public/fonts/Oxanium/Oxanium-Regular.woff2'
+import OxaniumSemiBoldWoff from 'public/fonts/Oxanium/Oxanium-SemiBold.woff'
+import OxaniumSemiBoldWoff2 from 'public/fonts/Oxanium/Oxanium-SemiBold.woff2'
+
+/* SOURCES: Poppins */
+import PoppinsSemiBoldWoff from 'public/fonts/Poppins/Poppins-SemiBold.woff'
+import PoppinsSemiBoldWoff2 from 'public/fonts/Poppins/Poppins-SemiBold.woff2'
+import PoppinsBoldWoff from 'public/fonts/Poppins/Poppins-Bold.woff'
+import PoppinsBoldWoff2 from 'public/fonts/Poppins/Poppins-Bold.woff2'
+import PoppinsLightWoff from 'public/fonts/Poppins/Poppins-Light.woff'
+import PoppinsLightWoff2 from 'public/fonts/Poppins/Poppins-Light.woff2'
+import PoppinsMediumWoff from 'public/fonts/Poppins/Poppins-Medium.woff'
+import PoppinsMediumWoff2 from 'public/fonts/Poppins/Poppins-Medium.woff2'
+import PoppinsRegularWoff from 'public/fonts/Poppins/Poppins-Regular.woff'
+import PoppinsRegularWoff2 from 'public/fonts/Poppins/Poppins-Regular.woff2'
+
 
 const fontsStyles = createGlobalStyle`
   @font-face {
     font-family: 'Oxanium';
-    src: url('/fonts/Oxanium/Oxanium-Medium.eot');
-    src: url('/fonts/Oxanium/Oxanium-Medium.eot?#iefix') format('embedded-opentype'),
-      url('/fonts/Oxanium/Oxanium-Medium.woff2') format('woff2'),
-      url('/fonts/Oxanium/Oxanium-Medium.woff') format('woff'),
-      url('/fonts/Oxanium/Oxanium-Medium.ttf') format('truetype');
+    src: url(${OxaniumMediumWoff}) format('woff'), url(${OxaniumMediumWoff2}) format('woff2');
     font-weight: 500;
     font-style: normal;
     font-display: swap;
   }
   @font-face {
     font-family: 'Oxanium';
-    src: url('/fonts/Oxanium/Oxanium-Bold.eot');
-    src: url('/fonts/Oxanium/Oxanium-Bold.eot?#iefix') format('embedded-opentype'),
-      url('/fonts/Oxanium/Oxanium-Bold.woff2') format('woff2'),
-      url('/fonts/Oxanium/Oxanium-Bold.woff') format('woff'),
-      url('/fonts/Oxanium/Oxanium-Bold.ttf') format('truetype');
+    src: url(${OxaniumBoldWoff}) format('woff'), url(${OxaniumBoldWoff2}) format('woff2');
     font-weight: 700;
     font-style: normal;
     font-display: swap;
   }
   @font-face {
     font-family: 'Oxanium';
-    src: url('/fonts/Oxanium/Oxanium-Light.eot');
-    src: url('/fonts/Oxanium/Oxanium-Light.eot?#iefix') format('embedded-opentype'),
-      url('/fonts/Oxanium/Oxanium-Light.woff2') format('woff2'),
-      url('/fonts/Oxanium/Oxanium-Light.woff') format('woff'),
-      url('/fonts/Oxanium/Oxanium-Light.ttf') format('truetype');
+    src: url(${OxaniumLightWoff}) format('woff'), url(${OxaniumLightWoff2}) format('woff2');
     font-weight: 300;
     font-style: normal;
     font-display: swap;
   }
   @font-face {
     font-family: 'Oxanium';
-    src: url('/fonts/Oxanium/Oxanium-Regular.eot');
-    src: url('/fonts/Oxanium/Oxanium-Regular.eot?#iefix') format('embedded-opentype'),
-      url('/fonts/Oxanium/Oxanium-Regular.woff2') format('woff2'),
-      url('/fonts/Oxanium/Oxanium-Regular.woff') format('woff'),
-      url('/fonts/Oxanium/Oxanium-Regular.ttf') format('truetype');
+    src: url(${OxaniumRegularWoff}) format('woff'), url(${OxaniumRegularWoff2}) format('woff2');
     font-weight: 400;
     font-style: normal;
     font-display: swap;
   }
   @font-face {
     font-family: 'Oxanium';
-    src: url('/fonts/Oxanium/Oxanium-SemiBold.eot');
-    src: url('/fonts/Oxanium/Oxanium-SemiBold.eot?#iefix') format('embedded-opentype'),
-      url('/fonts/Oxanium/Oxanium-SemiBold.woff2') format('woff2'),
-      url('/fonts/Oxanium/Oxanium-SemiBold.woff') format('woff'),
-      url('/fonts/Oxanium/Oxanium-SemiBold.ttf') format('truetype');
+    src: url(${OxaniumSemiBoldWoff}) format('woff'), url(${OxaniumSemiBoldWoff2}) format('woff2');
     font-weight: 600;
     font-style: normal;
     font-display: swap;
@@ -60,55 +63,35 @@ const fontsStyles = createGlobalStyle`
 
   @font-face {
     font-family: 'Poppins';
-    src: url('/fonts/Poppins/Poppins-SemiBold.eot');
-    src: url('/fonts/Poppins/Poppins-SemiBold.eot?#iefix') format('embedded-opentype'),
-      url('/fonts/Poppins/Poppins-SemiBold.woff2') format('woff2'),
-      url('/fonts/Poppins/Poppins-SemiBold.woff') format('woff'),
-      url('/fonts/Poppins/Poppins-SemiBold.ttf') format('truetype');
+    src: url(${PoppinsSemiBoldWoff}) format('woff'), url(${PoppinsSemiBoldWoff2}) format('woff2');
     font-weight: 600;
     font-style: normal;
     font-display: swap;
   }
   @font-face {
     font-family: 'Poppins';
-    src: url('/fonts/Poppins/Poppins-Bold.eot');
-    src: url('/fonts/Poppins/Poppins-Bold.eot?#iefix') format('embedded-opentype'),
-      url('/fonts/Poppins/Poppins-Bold.woff2') format('woff2'),
-      url('/fonts/Poppins/Poppins-Bold.woff') format('woff'),
-      url('/fonts/Poppins/Poppins-Bold.ttf') format('truetype');
+    src: url(${PoppinsBoldWoff}) format('woff'), url(${PoppinsBoldWoff2}) format('woff2');
     font-weight: 700;
     font-style: normal;
     font-display: swap;
   }
   @font-face {
     font-family: 'Poppins';
-    src: url('/fonts/Poppins/Poppins-Light.eot');
-    src: url('/fonts/Poppins/Poppins-Light.eot?#iefix') format('embedded-opentype'),
-      url('/fonts/Poppins/Poppins-Light.woff2') format('woff2'),
-      url('/fonts/Poppins/Poppins-Light.woff') format('woff'),
-      url('/fonts/Poppins/Poppins-Light.ttf') format('truetype');
+    src: url(${PoppinsLightWoff}) format('woff'), url(${PoppinsLightWoff2}) format('woff2');
     font-weight: 300;
     font-style: normal;
     font-display: swap;
   }
   @font-face {
     font-family: 'Poppins';
-    src: url('/fonts/Poppins/Poppins-Medium.eot');
-    src: url('/fonts/Poppins/Poppins-Medium.eot?#iefix') format('embedded-opentype'),
-      url('/fonts/Poppins/Poppins-Medium.woff2') format('woff2'),
-      url('/fonts/Poppins/Poppins-Medium.woff') format('woff'),
-      url('/fonts/Poppins/Poppins-Medium.ttf') format('truetype');
+    src: url(${PoppinsMediumWoff}) format('woff'), url(${PoppinsMediumWoff2}) format('woff2');
     font-weight: 500;
     font-style: normal;
     font-display: swap;
   }
   @font-face {
     font-family: 'Poppins';
-    src: url('/fonts/Poppins/Poppins-Regular.eot');
-    src: url('/fonts/Poppins/Poppins-Regular.eot?#iefix') format('embedded-opentype'),
-      url('/fonts/Poppins/Poppins-Regular.woff2') format('woff2'),
-      url('/fonts/Poppins/Poppins-Regular.woff') format('woff'),
-      url('/fonts/Poppins/Poppins-Regular.ttf') format('truetype');
+    src: url(${PoppinsRegularWoff}) format('woff'), url(${PoppinsRegularWoff2}) format('woff2');
     font-weight: 400;
     font-style: normal;
     font-display: swap;

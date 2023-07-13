@@ -7,8 +7,8 @@ const AppStyles: NextPage = () => {
   return (
     <>
       <FontsStyles />
-      <GlobalStyles />
       <ResetStyles />
+      <GlobalStyles />
     </>
   )
 }

@@ -1,14 +1,9 @@
 import theme from 'styled-theming'
 
 export const TEXT_COLOR = theme('value', {
-  light: '#fff',
-  dark: '#000',
+  light: '#000',
+  dark: '#fff',
 })
-
-// export const TEXT_COLOR = theme('value', {
-//   light: '#fff',
-//   dark: '#000',
-// })
 
 export const BG_COLOR = theme('value', {
   light: '#fff',

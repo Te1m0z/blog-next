@@ -9,7 +9,8 @@ const env = {
   FIREBASE_STORAGE_BUCKET: process.env.FIREBASE_STORAGE_BUCKET,
   FIREBASE_MESSAGEING_SENDER_ID: process.env.FIREBASE_MESSAGEING_SENDER_ID,
   FIREBASE_APP_ID: process.env.FIREBASE_APP_ID,
-  FIREBASE_CLIENT_EMAIL: process.env.FIREBASE_CLIENT_EMAIL
+  FIREBASE_CLIENT_EMAIL: process.env.FIREBASE_CLIENT_EMAIL,
+  //SC_ATTR: true,
 }
 
 const nextConfig = {
@@ -17,7 +18,7 @@ const nextConfig = {
   //output: 'standalone',
   reactStrictMode: false,
   compiler: {
-    styledComponents: true
+    styledComponents: true,
   },
   swcMinify: false,
   async redirects() {
@@ -26,9 +27,25 @@ const nextConfig = {
         source: '/home',
         destination: '/',
         permanent: true,
-      }
+      },
     ]
-  }
+  },
+  webpack: (config) => {
+    config.module.rules.push({
+      test: /\.(woff|woff2)$/,
+      use: {
+        loader: 'url-loader',
+        options: {
+          publicPath: '/_next',
+          name: 'static/fonts/[name].[hash].[ext]',
+          limit: 5000, // Adjust the limit as needed
+          fallback: 'file-loader',
+        },
+      },
+    })
+
+    return config
+  },
 }
 
 module.exports = nextConfig
